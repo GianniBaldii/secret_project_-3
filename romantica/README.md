@@ -17,7 +17,7 @@ La canción elegida es **Te Voy a Amar — Axel**, del MP3 proporcionado, guarda
 
 Diseño desde 320 px, botones de al menos 48 px, márgenes para las zonas seguras del teléfono, fotos grandes en columna y tamaños de letra flexibles. Las fotos originales se conservan; la web carga sus versiones reducidas. `Optimize-Images.ps1` genera los derivados JPEG y respeta la orientación EXIF.
 
-La ilustración `dist/assets/hero-v2.png` se creó con imagegen integrado usando la ilustración anterior y las fotos reales `flores.jpg` y `abrazo.jpg` como referencias. En pantalla se cargan `hero-mobile.jpg` o `hero-desktop.jpg` según el tamaño.
+La ilustración `dist/assets/hero-v3.png` se creó con imagegen integrado usando la ilustración anterior y las fotos reales `flores.jpg` y `abrazo.jpg` como referencias. En pantalla se cargan `hero-v3-mobile.jpg` o `hero-v3-desktop.jpg` según el tamaño.
 
 Para el QR, usá la URL pública que Railway genera; una ruta local del equipo no funciona en su teléfono.
 

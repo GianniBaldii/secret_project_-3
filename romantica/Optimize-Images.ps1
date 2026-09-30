@@ -2,8 +2,8 @@
 Add-Type -AssemblyName System.Drawing
 $assets = Join-Path $PSScriptRoot 'dist/assets'
 $jobs = @(
-    @{Source='hero-v2.png'; Target='hero-mobile.jpg'; Width=640},
-    @{Source='hero-v2.png'; Target='hero-desktop.jpg'; Width=1100},
+    @{Source='hero-v3.png'; Target='hero-v3-mobile.jpg'; Width=640},
+    @{Source='hero-v3.png'; Target='hero-v3-desktop.jpg'; Width=1100},
     @{Source='flores.jpg'; Target='flores-mobile.jpg'; Width=720},
     @{Source='abrazo.jpg'; Target='abrazo-mobile.jpg'; Width=720}
 )
