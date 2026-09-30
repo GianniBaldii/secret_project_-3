@@ -9,7 +9,8 @@ const CONFIG = {
   music: { epic: 'assets/epica.wav', romantic: 'assets/romantica.wav' },
   questions: [
     { text: '¿Qué día nos conocimos? ❤️', options: ['4 de junio de 2026', '4 de julio de 2026', '13 de julio de 2026'], correct: 1, success: 'Bien ahí 😌 esa fecha no se olvida.', error: 'Mmm… arrancamos flojito jajaja. Probá de nuevo.' },
-    { text: 'A ver si realmente me conocés… ¿cuál es mi película favorita? 🎬', options: ['Shrek', 'Cómo entrenar a tu dragón', 'Kung Fu Panda'], correct: 2, success: 'Muy bien, estás prestando atención ❤️', error: 'Juli… tenemos que hablar 😂' },
+    // 220000 + 500 + 3 = 220503 → 22/05/03, su cumpleaños.
+    { text: 'Un poquito de matemática… ¿cuánto es 220000 + 500 + 3? 🧮', options: ['220053', '225003', '220503'], correct: 2, success: '¡Exacto! 220503… 22/05/03. ¿Te suena esa fecha? Tu cumpleaños ❤️🎂', error: 'Casi, Juli… sumá de nuevo, que este número es especial 😌' },
     { text: 'Pregunta importantísima: ¿quién perdió el domingo pasado al chinchón? 🃏', options: ['Empate', 'Gianni', 'Juli'], correct: 2, success: 'EXACTAMENTE, PULGUITA. PERDISTE VOS. ACEPTALO Y VIVÍ CON ESO ❤️😂', errors: ['No no no… no intentes reescribir la historia 😂', 'No, salame JAJAJA.'] }
   ],
   noMessages: ['¿Estás segura? 👀', 'Me parece que te equivocaste de botón…', 'JULIETA, ¿CÓMO VAS A CLIQUEAR QUE NO? JAJAJA', 'Pues vendeme y comprate un conejo y un Stitch 😭', 'Has alcanzado el límite de intentos de negarte. Ahora solo te queda decir que sí. ❤️']
