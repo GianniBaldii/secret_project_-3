@@ -9,9 +9,9 @@ Abrí `dist/index.html` para usar la web. No necesita instalaciones ni internet 
 
 La música empieza tras un toque, como requieren los navegadores móviles. El botón superior permite pausarla y la preferencia se respeta al cambiar de etapa. No se envían ni guardan respuestas. Recargar vuelve al inicio.
 
-## Música de Up (pendiente del archivo)
+## Música de fondo
 
-Todavía se usan las instrumentales originales. Para poner la grabación elegida de Up, guardá el archivo en `dist/assets/up.mp3` y cambiá `CONFIG.backgroundMusic` de `null` a `'assets/up.mp3'`. Así esa pista empieza al tocar Empezar y sigue durante toda la experiencia, sin reiniciarse al pasar a la parte romántica. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
+La canción elegida es **Te Voy a Amar — Axel**, del MP3 proporcionado, guardada en `dist/assets/axel-te-voy-a-amar.mp3`. `CONFIG.backgroundMusic` apunta a ese archivo. Empieza al tocar Empezar, se repite al terminar y sigue durante toda la experiencia sin reiniciarse al pasar a la parte romántica. El botón superior permite pausar y reanudar. Para reemplazarla, cambiá esa ruta; con `null` se vuelve a las instrumentales por etapa. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
 
 ## Versión para celular
 

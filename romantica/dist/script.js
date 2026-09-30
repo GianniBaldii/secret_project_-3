@@ -2,10 +2,10 @@
    Las fotos se cambian en index.html y los colores en style.css.
    Podés reemplazar estos WAV por MP3 propios, actualizando las rutas. */
 const CONFIG = {
-  // Cuando agregues el audio de Up, poné aquí 'assets/up.mp3'.
-  // Esa pista acompañará todo el recorrido sin reiniciarse entre pantallas.
-  // null conserva las instrumentales actuales hasta tener el archivo real.
-  backgroundMusic: null,
+  // Canción elegida: Axel — Te Voy a Amar. Cambiá esta ruta para reemplazarla.
+  // Acompaña todo el recorrido sin reiniciarse entre pantallas.
+  // Usá null para volver a las dos instrumentales por etapa.
+  backgroundMusic: 'assets/axel-te-voy-a-amar.mp3',
   music: { epic: 'assets/epica.wav', romantic: 'assets/romantica.wav' },
   questions: [
     { text: '¿Qué día nos conocimos? ❤️', options: ['4 de junio de 2026', '4 de julio de 2026', '13 de julio de 2026'], correct: 1, success: 'Bien ahí 😌 esa fecha no se olvida.', error: 'Mmm… arrancamos flojito jajaja. Probá de nuevo.' },
