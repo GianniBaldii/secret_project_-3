@@ -2,6 +2,10 @@
    Las fotos se cambian en index.html y los colores en style.css.
    Podés reemplazar estos WAV por MP3 propios, actualizando las rutas. */
 const CONFIG = {
+  // Cuando agregues el audio de Up, poné aquí 'assets/up.mp3'.
+  // Esa pista acompañará todo el recorrido sin reiniciarse entre pantallas.
+  // null conserva las instrumentales actuales hasta tener el archivo real.
+  backgroundMusic: null,
   music: { epic: 'assets/epica.wav', romantic: 'assets/romantica.wav' },
   questions: [
     { text: '¿Qué día nos conocimos? ❤️', options: ['4 de junio de 2026', '4 de julio de 2026', '13 de julio de 2026'], correct: 1, success: 'Bien ahí 😌 esa fecha no se olvida.', error: 'Mmm… arrancamos flojito jajaja. Probá de nuevo.' },
@@ -13,17 +17,22 @@ const CONFIG = {
 const $ = id => document.getElementById(id);
 let questionIndex = 0, answered = false, noCount = 0;
 let track = 'epic', playing = false, muted = false, fadeTimer;
-const audio = new Audio(CONFIG.music.epic);
+const audio = new Audio(CONFIG.backgroundMusic || CONFIG.music.epic);
+audio.preload = 'none'; // No descargar música hasta el primer toque en el celular.
 audio.loop = true; audio.volume = .42;
 function musicUI() { $('music').setAttribute('aria-pressed', String(playing)); $('music').setAttribute('aria-label', playing ? 'Pausar música' : 'Activar música'); $('music').innerHTML = `${playing ? 'Ⅱ' : '♫'} <span>Música</span>`; }
 function playMusic(kind = track) {
   clearInterval(fadeTimer);
-  if (kind !== track) { audio.pause(); audio.src = CONFIG.music[kind]; track = kind; }
+  if (kind !== track) {
+    if (!CONFIG.backgroundMusic) { audio.pause(); audio.src = CONFIG.music[kind]; }
+    track = kind;
+  }
   audio.volume = .42;
   if (muted) return;
   audio.play().then(() => { playing = true; musicUI(); }).catch(() => { playing = false; musicUI(); });
 }
 function fadeMusic() {
+  if (CONFIG.backgroundMusic) return;
   clearInterval(fadeTimer);
   fadeTimer = setInterval(() => { audio.volume = Math.max(0, audio.volume - .035); if (audio.volume <= .001) { clearInterval(fadeTimer); audio.pause(); playing = false; musicUI(); } }, 90);
 }
@@ -68,7 +77,8 @@ $('ask').addEventListener('click', () => show('proposal'));
 $('no').addEventListener('click', () => {
   $('no-message').textContent = CONFIG.noMessages[noCount]; noCount++;
   $('yes').style.transform = `scale(${1 + noCount * .045})`;
-  $('no').style.transform = `scale(${1 - noCount * .065})`;
+  // La letra se achica, pero el área táctil conserva al menos 54px de alto.
+  $('no').style.fontSize = `${Math.max(.875, 1 - noCount * .03)}rem`;
   if (noCount >= CONFIG.noMessages.length) { $('no').hidden = true; $('yes').focus(); }
 });
 $('yes').addEventListener('click', () => {

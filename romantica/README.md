@@ -9,6 +9,16 @@ Abrí `dist/index.html` para usar la web. No necesita instalaciones ni internet 
 
 La música empieza tras un toque, como requieren los navegadores móviles. El botón superior permite pausarla y la preferencia se respeta al cambiar de etapa. No se envían ni guardan respuestas. Recargar vuelve al inicio.
 
+## Música de Up (pendiente del archivo)
+
+Todavía se usan las instrumentales originales. Para poner la grabación elegida de Up, guardá el archivo en `dist/assets/up.mp3` y cambiá `CONFIG.backgroundMusic` de `null` a `'assets/up.mp3'`. Así esa pista empieza al tocar Empezar y sigue durante toda la experiencia, sin reiniciarse al pasar a la parte romántica. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
+
+## Versión para celular
+
+Diseño desde 320 px, botones de al menos 48 px, márgenes para las zonas seguras del teléfono, fotos grandes en columna y tamaños de letra flexibles. Las fotos originales se conservan; la web carga sus versiones reducidas. `Optimize-Images.ps1` genera los derivados JPEG y respeta la orientación EXIF.
+
+La ilustración `dist/assets/hero-v2.png` se creó con imagegen integrado usando la ilustración anterior y las fotos reales `flores.jpg` y `abrazo.jpg` como referencias. En pantalla se cargan `hero-mobile.jpg` o `hero-desktop.jpg` según el tamaño.
+
 Para el QR, usá la URL pública que Railway genera; una ruta local del equipo no funciona en su teléfono.
 
 ## Railway desde GitHub
