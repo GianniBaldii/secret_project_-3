@@ -11,7 +11,11 @@ La música empieza tras un toque, como requieren los navegadores móviles. El bo
 
 ## Música de fondo
 
-La canción elegida es **Te Voy a Amar — Axel**, del MP3 proporcionado, guardada en `dist/assets/axel-te-voy-a-amar.mp3`. `CONFIG.backgroundMusic` apunta a ese archivo. Empieza al tocar Empezar, se repite al terminar y sigue durante toda la experiencia sin reiniciarse al pasar a la parte romántica. El botón superior permite pausar y reanudar. Para reemplazarla, cambiá esa ruta; con `null` se vuelve a las instrumentales por etapa. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
+La instrumental épica existente (`CONFIG.music.epic`) comienza con el botón inicial y se desvanece al terminar la trivia. No es la grabación de Game of Thrones. **Te Voy a Amar — Axel** (`CONFIG.music.romantic`, MP3 proporcionado) empieza al tocar **SÍ**, y se repite al terminar. Entre la trivia y la aceptación hay silencio salvo que se reactive manualmente la música. El botón superior permite pausar y reanudar; una pausa voluntaria se respeta al llegar al final. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
+
+## Recorrido personalizado
+
+Inicio → cuatro preguntas (fecha, cumpleaños, películas y chinchón) → transición íntima → fotos y recuerdos → preámbulo → propuesta con seis mensajes de NO → aceptación con Axel y confeti. La fecha correcta sigue siendo 4 de julio de 2026. El progreso se calcula desde `CONFIG.questions`, y cada pregunta puede definir sus mensajes y efectos.
 
 ## Versión para celular
 

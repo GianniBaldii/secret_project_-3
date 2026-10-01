@@ -156,3 +156,22 @@ footer span { color: var(--red); padding: 0 8px; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .piece { display: none; }
 }
+
+/* Contenido personal: párrafos largos con aire y feedback multilínea. */
+.hero-copy h1 { font-size: clamp(2.25rem, 4.6vw, 4rem); }
+.hero-copy p { max-width: 480px; margin-bottom: 18px; }
+#question { white-space: pre-line; font-size: clamp(1.85rem, 3.8vw, 3rem); }
+.feedback { white-space: pre-line; }
+.story p { margin: 22px 0; }
+.story .love-line { font: italic 1.8rem/1.5 Georgia, serif; color: var(--wine); margin: 30px 0; }
+.julieta { font: italic 1.6rem/1.4 Georgia, serif; color: var(--wine); margin-bottom: 32px; }
+.proposal-preamble { max-width: 490px; margin: 0 auto 36px; }
+#propose { max-width: 100%; }
+.kiss { top: auto; bottom: -40px; animation-name: float-kiss; }
+@keyframes float-kiss { to { transform: translate(var(--drift), -100vh) rotate(25deg); opacity: 0; } }
+@media(max-width:700px) {
+  .hero-copy h1 { font-size: clamp(2.15rem, 8.6vw, 2.8rem); }
+  #question { font-size: clamp(1.65rem, 6.6vw, 2.1rem); }
+  .story .love-line { font-size: 1.65rem; }
+  #propose { width: 100%; }
+}
