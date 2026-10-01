@@ -1,7 +1,7 @@
 /* PERSONALIZACIÓN: correct es el índice de la respuesta (0 = primera).
    Las fotos y textos de las pantallas están en index.html; colores en style.css. */
 const CONFIG = {
-  // La épica existente acompaña la trivia; Axel empieza al aceptar la propuesta.
+  // Axel acompaña todo el recorrido desde el comienzo del cuestionario.
   music: { epic: 'assets/epica.wav', romantic: 'assets/axel-te-voy-a-amar.mp3' },
   questions: [
     { text: '¿En qué fecha empezó oficialmente todo este quilombo? ❤️', options: ['4 de junio de 2026', '4 de julio de 2026', '13 de julio de 2026'], correct: 1, success: 'Bien ahí pulguita 😌❤️. Veo que por ahora conservás la memoria.', error: 'JULI JAJAJA arrancamos como el orto. Probá de nuevo.' },
@@ -13,9 +13,9 @@ const CONFIG = {
 };
 const $ = id => document.getElementById(id);
 let questionIndex = 0, answered = false, noCount = 0;
-let track = 'epic', playing = false, muted = false, fadeTimer, effectTimer;
+let track = 'romantic', playing = false, muted = false, effectTimer;
 const audio = $('soundtrack');
-audio.src = CONFIG.music.epic;
+audio.src = CONFIG.music.romantic;
 audio.volume = .42;
 function musicUI() {
   playing = !audio.paused;
@@ -27,22 +27,14 @@ audio.addEventListener('play', musicUI);
 audio.addEventListener('pause', musicUI);
 audio.addEventListener('error', () => { audio.pause(); musicUI(); });
 function playMusic(kind = track) {
-  clearInterval(fadeTimer);
   if (kind !== track) { audio.pause(); audio.src = CONFIG.music[kind]; track = kind; }
   audio.volume = .42;
   if (muted) return;
   // Se llama directamente desde el toque para ser compatible con celulares.
   audio.play().then(musicUI).catch(musicUI);
 }
-function fadeMusic() {
-  clearInterval(fadeTimer);
-  fadeTimer = setInterval(() => {
-    audio.volume = Math.max(0, audio.volume - .035);
-    if (audio.volume <= .001) { clearInterval(fadeTimer); audio.pause(); }
-  }, 90);
-}
 $('music').addEventListener('click', () => {
-  if (!audio.paused) { clearInterval(fadeTimer); muted = true; audio.pause(); }
+  if (!audio.paused) { muted = true; audio.pause(); }
   else { muted = false; playMusic(); }
 });
 function show(id) {
@@ -102,11 +94,11 @@ function renderQuestion() {
     $('answers').append(button);
   });
 }
-$('start').addEventListener('click', () => { playMusic('epic'); renderQuestion(); show('quiz'); });
+$('start').addEventListener('click', () => { playMusic('romantic'); renderQuestion(); show('quiz'); });
 $('next').addEventListener('click', () => {
   if (!answered) return;
   if (questionIndex < CONFIG.questions.length - 1) { questionIndex++; renderQuestion(); show('quiz'); }
-  else { fadeMusic(); show('transition'); }
+  else { show('transition'); }
 });
 $('continue').addEventListener('click', () => show('romance'));
 $('ask').addEventListener('click', () => show('before-proposal'));
@@ -118,4 +110,4 @@ $('no').addEventListener('click', () => {
   $('no').style.fontSize = `${Math.max(.875, 1 - noCount * .03)}rem`;
   if (noCount >= CONFIG.noMessages.length) { $('no').hidden = true; $('yes').focus({ preventScroll: true }); }
 });
-$('yes').addEventListener('click', () => { playMusic('romantic'); show('success'); celebrate(); });
+$('yes').addEventListener('click', () => { show('success'); celebrate(); });

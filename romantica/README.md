@@ -11,7 +11,7 @@ La música empieza tras un toque, como requieren los navegadores móviles. El bo
 
 ## Música de fondo
 
-La instrumental épica existente (`CONFIG.music.epic`) comienza con el botón inicial y se desvanece al terminar la trivia. No es la grabación de Game of Thrones. **Te Voy a Amar — Axel** (`CONFIG.music.romantic`, MP3 proporcionado) empieza al tocar **SÍ**, y se repite al terminar. Entre la trivia y la aceptación hay silencio salvo que se reactive manualmente la música. El botón superior permite pausar y reanudar; una pausa voluntaria se respeta al llegar al final. El servidor admite MP3, M4A, OGG y solicitudes de audio por rangos para iPhone.
+**Te Voy a Amar — Axel** (`CONFIG.music.romantic`, MP3 proporcionado) comienza al iniciar el cuestionario y sigue durante las transiciones, las fotos, la propuesta y el festejo sin reiniciarse. Se repite al terminar. El botón superior permite pausar y reanudar; la pausa se respeta al cambiar de pantalla.
 
 ## Recorrido personalizado
 
